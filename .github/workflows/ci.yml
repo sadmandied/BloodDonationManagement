@@ -1,0 +1,33 @@
+name: Java Web Build & Integrity CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  verify:
+    name: Code & Structure Verification
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Verify Web Layer Assets
+        run: |
+          test -f web/index.html
+          test -f web/home.jsp
+          test -f web/view.jsp
+          test -f web/registerdonor.jsp
+          test -f web/updatedonor.jsp
+          test -f web/connection.jsp
+          test -f schema.sql
+          echo "All Blood Donation Management assets verified!"
