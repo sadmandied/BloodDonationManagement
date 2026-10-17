@@ -1,85 +1,23 @@
-<p align="center">
-  <img src="https://i.postimg.cc/9FrhPvyR/bloodbanner.jpg" alt="Blood Donation Management System Banner" width="100%">
-</p>
+# Blood Donation Management System
 
-# 🩸 Blood Donation Management System
+A web-based blood donation management application built with Java (JSP), JDBC, and Oracle Database.
 
-[![Build Verification](https://github.com/sadmandied/BloodDonationManagement/actions/workflows/ci.yml/badge.svg)](https://github.com/sadmandied/BloodDonationManagement/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Java](https://img.shields.io/badge/Java-JSP_Scriptlets-ED8B00?logo=openjdk&logoColor=white)](https://www.oracle.com/java/)
-[![Server](https://img.shields.io/badge/Server-Apache_Tomcat_10-F8DC75?logo=apachetomcat&logoColor=black)](https://tomcat.apache.org/)
-[![Database](https://img.shields.io/badge/Database-Oracle_XE_11g-F80000?logo=oracle&logoColor=white)](https://www.oracle.com/database/)
+## Features
 
-A Java-based web application developed using **JSP Scriptlets**, **JDBC**, and **Oracle Database XE** to streamline voluntary blood donor registration, blood group queries, and record management.
+- **Donor Registration:** Add donor details including blood group, age, location, and contact information.
+- **Donor Directory:** View list of registered donors and their availability status.
+- **Update Records:** Edit donor location, contact information, and availability status.
+- **Delete Records:** Remove donor records from the system.
 
----
+## Tech Stack
 
-## 🌟 Overview
-The **Blood Donation Management System** simplifies blood bank and donor operations. It enables healthcare coordinators and blood banks to manage active donors, search for compatible blood types, update donor availability, and maintain emergency contact channels.
+- **Frontend / Backend:** JSP (Java Server Pages), HTML, CSS
+- **Database:** Oracle Database (XE) via JDBC
+- **Server:** Apache Tomcat
 
-Developed in **Apache NetBeans** with pure JSP scriptlets and Oracle Database connectivity.
+## Database Setup
 
----
-
-## 🏛️ System Architecture
-
-```mermaid
-graph TD
-    Client([Web Browser / User])
-
-    subgraph Presentation Layer
-        Index[index.html - Landing Page]
-        Home[home.jsp - Donor Dashboard]
-        View[view.jsp - Donor Directory]
-        Register[registerdonor.jsp]
-        Update[updatedonor.jsp]
-    end
-
-    subgraph Processing Layer
-        RegProc[registerprocess.jsp]
-        UpdProc[updateprocess.jsp]
-        DelProc[delete.jsp]
-    end
-
-    subgraph Data Access
-        Conn[connection.jsp - Oracle JDBC]
-    end
-
-    subgraph Oracle Database
-        Donors[(Donors Table)]
-    end
-
-    Client --> Index --> Home
-    Home --> Register --> RegProc --> Conn --> Donors
-    Home --> View --> Update --> UpdProc --> Conn --> Donors
-    View --> DelProc --> Conn --> Donors
-```
-
----
-
-## ⚙️ Key Features
-- 🩸 **Comprehensive Donor Registration:** Capture name, blood group (A+, A-, B+, B-, AB+, AB-, O+, O-), age, location, and contact phone.
-- 📋 **Live Donor Directory:** View all registered donors with their real-time availability status.
-- ✏️ **Edit & Update Donors:** Modify location, contact details, or toggle availability between `Available` and `Unavailable`.
-- 🗑️ **Record Management:** Safely remove inactive or outdated donor entries.
-- 🗄️ **Oracle Database Integration:** Reliable data storage powered by Oracle XE and JDBC `PreparedStatement`.
-
----
-
-## 📸 Screenshots
-
-<p align="center">
-  <img src="screenshots/Screenshot (386).png" width="45%" style="margin: 5px;">
-  <img src="screenshots/Screenshot (387).png" width="45%" style="margin: 5px;">
-  <img src="screenshots/Screenshot (388).png" width="45%" style="margin: 5px;">
-  <img src="screenshots/Screenshot (390).png" width="45%" style="margin: 5px;">
-</p>
-
----
-
-## 🗄️ Database Schema
-
-The system uses the `Donors` table in Oracle:
+Create the `Donors` table in your Oracle database:
 
 ```sql
 CREATE TABLE Donors (
@@ -93,31 +31,16 @@ CREATE TABLE Donors (
 );
 ```
 
-*A ready-to-run DDL and seed data script is provided in [`schema.sql`](./schema.sql).*
+*A complete DDL and seed data script is available in [`schema.sql`](./schema.sql).*
 
----
+## How to Run
 
-## 🚀 Setup & Execution
+1. Clone the repository.
+2. Ensure you have **JDK 8+**, **Apache Tomcat**, and **Oracle Database XE** installed.
+3. Execute `schema.sql` in Oracle SQL.
+4. Verify database credentials in `web/connection.jsp`.
+5. Open the project in Apache NetBeans (or your preferred IDE) and deploy to Tomcat.
 
-1. **Prerequisites:**
-   - JDK 8 or higher
-   - Apache Tomcat 9/10
-   - Oracle Database XE 11g+
-   - Apache NetBeans IDE
-2. **Database Setup:**
-   - Run `schema.sql` in Oracle SQL Commands or SQL*Plus under user `PROJECT` (or update credentials in `web/connection.jsp`).
-3. **Deploy & Run:**
-   - Open project in NetBeans, set server to Tomcat, and run.
-
----
-
-## 📜 License
+## License
 
 This project is licensed under the [MIT License](./LICENSE).
-
----
-
-## 👤 Author
-
-- **Sadman Fahmid Raj**
-- University of Scholars
