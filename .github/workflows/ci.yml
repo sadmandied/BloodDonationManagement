@@ -21,7 +21,7 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Verify Web Layer Assets
+      - name: Verify Web Layer Assets & Integrity Tests
         run: |
           test -f web/index.html
           test -f web/home.jsp
@@ -30,4 +30,5 @@ jobs:
           test -f web/updatedonor.jsp
           test -f web/connection.jsp
           test -f schema.sql
-          echo "All Blood Donation Management assets verified!"
+          python3 tests/verify_repo.py
+          echo "All Blood Donation Management assets and integrity checks passed!"

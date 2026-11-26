@@ -1,9 +1,10 @@
-<%@include file="connection.jsp"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <link rel="stylesheet" href="newcss.css">
+<html lang="en">
     <head>
-        <title>Home</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Home — Blood Donation Management</title>
+        <link rel="stylesheet" href="newcss.css">
     </head>
     <body>
         <header>

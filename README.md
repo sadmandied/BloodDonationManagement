@@ -38,7 +38,7 @@ CREATE TABLE Donors (
 1. Clone the repository.
 2. Ensure you have **JDK 8+**, **Apache Tomcat**, and **Oracle Database XE** installed.
 3. Execute `schema.sql` in Oracle SQL.
-4. Verify database credentials in `web/connection.jsp`.
+4. Configure database connection environment variables (`BLOOD_DB_URL`, `BLOOD_DB_USER`, `BLOOD_DB_PASSWORD`) for your Tomcat/Oracle runtime (see [`web/connection.jsp`](./web/connection.jsp)).
 5. Open the project in Apache NetBeans (or your preferred IDE) and deploy to Tomcat.
 
 ## License
