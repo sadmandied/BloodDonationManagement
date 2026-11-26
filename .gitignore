@@ -4,5 +4,7 @@ nbproject/private/
 *.class
 *.war
 .nb-cache/
+__pycache__/
+*.py[cod]
 .DS_Store
 Thumbs.db
